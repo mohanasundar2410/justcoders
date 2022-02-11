@@ -1,6 +1,8 @@
 package com.onlineauction.bidsale.ui.home;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +11,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,13 +22,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.onlineauction.bidsale.R;
+import com.onlineauction.bidsale.ui.ProductAdapter;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 
 public class SellActivity extends AppCompatActivity {
 
@@ -30,15 +40,48 @@ public class SellActivity extends AppCompatActivity {
     private static final String TAG = "SEllExp";
     private static final int SELECT_PICTURE = 200;
     private ArrayList<Uri> mArrayUri;
+    Button addImage;
+    ProductAdapter adapter;
+    RecyclerView recyclerView;
+    Calendar date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
-
+        addImage = findViewById(R.id.add_image_btn);
         mArrayUri = new ArrayList<>();
+        recyclerView = findViewById(R.id.image_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ProductAdapter(this,mArrayUri);
+        recyclerView.setAdapter(adapter);
+        addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestLocationPermissions();
+            }
+        });
 
 
+    }
+
+    public void showDateTimePicker() {
+        final Calendar currentDate = Calendar.getInstance();
+        date = Calendar.getInstance();
+        new DatePickerDialog(SellActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                date.set(year, monthOfYear, dayOfMonth);
+                new TimePickerDialog(SellActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        date.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        date.set(Calendar.MINUTE, minute);
+                        Log.v(TAG, "The choosen one " + date.getTime());
+                    }
+                }, currentDate.get(Calendar.HOUR_OF_DAY), currentDate.get(Calendar.MINUTE), false).show();
+            }
+        }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE)).show();
     }
 
     private void requestLocationPermissions() {
@@ -108,6 +151,8 @@ public class SellActivity extends AppCompatActivity {
                 Uri imageurl = data.getData();
                 mArrayUri.add(imageurl);
             }
+
+            adapter.notifyDataSetChanged();
 
 
         } else {

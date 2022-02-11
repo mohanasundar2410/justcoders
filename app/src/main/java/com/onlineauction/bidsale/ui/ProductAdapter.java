@@ -29,7 +29,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     private RemoveListener listener;
 
 
-    ProductAdapter(Context context, ArrayList<Uri> imageList) {
+    public ProductAdapter(Context context, ArrayList<Uri> imageList) {
         this.context = context;
         this.imageList = imageList;
     }

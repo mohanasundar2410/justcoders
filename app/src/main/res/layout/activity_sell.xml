@@ -41,5 +41,37 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/product_disc_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/add_image_btn"
+        android:text="Add Images"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/add_image_btn"
+        android:id="@+id/image_list"
+        android:orientation="horizontal"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/product_price_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:hint="Bid Start Price"
+        app:layout_constraintTop_toBottomOf="@id/image_list">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/product_price"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
