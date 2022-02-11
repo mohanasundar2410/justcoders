@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mohan/AndroidStudioProjects/BidSale/app/src/main/res/layout/activity_sell.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/mohan/AndroidStudioProjects/BidSale/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/mohan/AndroidStudioProjects/BidSale/app/src/main/res/layout/fragment_home.xml" value="0.18" />
+        <entry key="..\:/Users/mohan/AndroidStudioProjects/BidSale/app/src/main/res/layout/single_image_product.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/mohan/AppData/Local/Android/Sdk/platforms/android-32/data/res/drawable/btn_dialog.xml" value="0.1" />
       </map>
     </option>
   </component>

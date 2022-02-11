@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "153880204548",
+    "firebase_url": "https://bidsale-49f3e-default-rtdb.firebaseio.com",
+    "project_id": "bidsale-49f3e",
+    "storage_bucket": "bidsale-49f3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153880204548:android:51155d50a90b0bfd1bac51",
+        "android_client_info": {
+          "package_name": "com.onlineauction.bidsale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153880204548-on8lqp22rm6i45lrgqqq3oekcckpslvp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onlineauction.bidsale",
+            "certificate_hash": "724066dccbdc33909d924dae468faf9ed2861178"
+          }
+        },
+        {
+          "client_id": "153880204548-uvvr0qpa6cvuu6bvn4g8ab1nr86k49ic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMiPW96rc_RolfkAk1Ry8cRw6qbNvcchs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153880204548-uvvr0qpa6cvuu6bvn4g8ab1nr86k49ic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
